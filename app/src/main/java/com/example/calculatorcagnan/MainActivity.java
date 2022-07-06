@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    public int prev_num = 0;
+    public long prev_num = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 Button btn = (Button) view;
                 String op = btn.getText().toString();
                 String str_number = etSpace.getText().toString();
-                int num = Integer.parseInt(str_number);
+                long num = Integer.parseInt(str_number);
                 if(op.compareTo("+") == 0){
                     //TODO
-                    int res = prev_num + num;
+                    long res = prev_num + num;
                     prev_num = res;
                     etSpace.setText((res + ""));
                 }
@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 Button btn = (Button) view;
                 String op = btn.getText().toString();
                 String str_number = etSpace.getText().toString();
-                int num = Integer.parseInt(str_number);
+                long num = Integer.parseInt(str_number);
                 if(op.compareTo("-") == 0){
                     //TODO
-                    int res = prev_num - num;
+                    long res = prev_num - num;
                     prev_num = res;
                     etSpace.setText((res + ""));
                 }
@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
                 Button btn = (Button) view;
                 String op = btn.getText().toString();
                 String str_number = etSpace.getText().toString();
-                int num = Integer.parseInt(str_number);
+                long num = Integer.parseInt(str_number);
                 if(op.compareTo("-") == 0){
                     //TODO
-                    int res = prev_num / num;
+                    long res = prev_num / num;
                     prev_num = res;
                     etSpace.setText((res + ""));
                 }
@@ -120,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 Button btn = (Button) view;
                 String op = btn.getText().toString();
                 String str_number = etSpace.getText().toString();
-                int num = Integer.parseInt(str_number);
+                long num = Integer.parseInt(str_number);
                 if(op.compareTo("-") == 0){
                     //TODO
-                    int res = prev_num * num;
+                    long res = prev_num * num;
                     prev_num = res;
                     etSpace.setText((res + ""));
                 }
