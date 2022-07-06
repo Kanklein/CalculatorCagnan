@@ -14,7 +14,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         digitButtonListenerMethod();
-        operationButtonListenerMethod();
+        opbtnPlus();
+        opbtnMinus();
+        opbtnDiv();
+        opbtnMult();
     }
     public void digitButtonListenerMethod(){
         View.OnClickListener digitListener = new View.OnClickListener() {
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 etSpace.setText(etSpace.getText() + "" + btn.getText());
             }
         };
+        Button btn0 = (Button) findViewById(R.id.btn0);
         Button btn1 = (Button) findViewById(R.id.btn1);
         Button btn2 = (Button) findViewById(R.id.btn2);
         Button btn3 = (Button) findViewById(R.id.btn3);
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn7 = (Button) findViewById(R.id.btn7);
         Button btn8 = (Button) findViewById(R.id.btn8);
         Button btn9 = (Button) findViewById(R.id.btn9);
+        btn0.setOnClickListener(digitListener);
         btn1.setOnClickListener(digitListener);
         btn2.setOnClickListener(digitListener);
         btn3.setOnClickListener(digitListener);
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btn8.setOnClickListener(digitListener);
         btn9.setOnClickListener(digitListener);
     }
-    public void operationButtonListenerMethod(){
+    public void opbtnPlus(){
         View.OnClickListener opListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +68,69 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         Button btnPlus = (Button) findViewById(R.id.btnPlus);
+        btnPlus.setOnClickListener(opListener);
+    }
+    public void opbtnMinus(){
+        View.OnClickListener opListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText etSpace = (EditText)  findViewById(R.id.etSpace);
+                Button btn = (Button) view;
+                String op = btn.getText().toString();
+                String str_number = etSpace.getText().toString();
+                int num = Integer.parseInt(str_number);
+                if(op.compareTo("-") == 0){
+                    //TODO
+                    int res = prev_num - num;
+                    prev_num = res;
+                    etSpace.setText((res + ""));
+                }
+                //etSpace.setText("0");
+            }
+        };
+        Button btnPlus = (Button) findViewById(R.id.btnMinus);
+        btnPlus.setOnClickListener(opListener);
+    }
+    public void opbtnDiv(){
+        View.OnClickListener opListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText etSpace = (EditText)  findViewById(R.id.etSpace);
+                Button btn = (Button) view;
+                String op = btn.getText().toString();
+                String str_number = etSpace.getText().toString();
+                int num = Integer.parseInt(str_number);
+                if(op.compareTo("-") == 0){
+                    //TODO
+                    int res = prev_num / num;
+                    prev_num = res;
+                    etSpace.setText((res + ""));
+                }
+                //etSpace.setText("0");
+            }
+        };
+        Button btnPlus = (Button) findViewById(R.id.btnDiv);
+        btnPlus.setOnClickListener(opListener);
+    }
+    public void opbtnMult(){
+        View.OnClickListener opListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText etSpace = (EditText)  findViewById(R.id.etSpace);
+                Button btn = (Button) view;
+                String op = btn.getText().toString();
+                String str_number = etSpace.getText().toString();
+                int num = Integer.parseInt(str_number);
+                if(op.compareTo("-") == 0){
+                    //TODO
+                    int res = prev_num * num;
+                    prev_num = res;
+                    etSpace.setText((res + ""));
+                }
+                //etSpace.setText("0");
+            }
+        };
+        Button btnPlus = (Button) findViewById(R.id.btnMult);
         btnPlus.setOnClickListener(opListener);
     }
 }
